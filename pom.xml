@@ -17,6 +17,7 @@
         <h2.version>1.4.188</h2.version>
         <junit.version>4.12</junit.version>
         <swagger.version>1.3.12</swagger.version>
+        <lombok.version>1.16.6</lombok.version>
     </properties>
 
     <dependencies>
@@ -64,6 +65,11 @@
             <groupId>com.wordnik</groupId>
             <artifactId>swagger-jaxrs_2.10</artifactId>
             <version>${swagger.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
         </dependency>
     </dependencies>
 
