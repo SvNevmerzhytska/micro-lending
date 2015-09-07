@@ -1,6 +1,9 @@
 package ua.nevmerzhytska;
 
 import com.codahale.metrics.health.HealthCheck;
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.datatype.jsr310.JSR310Module;
 import com.wordnik.swagger.config.ScannerFactory;
 import com.wordnik.swagger.jaxrs.config.DefaultJaxrsScanner;
 import com.wordnik.swagger.jaxrs.listing.ApiDeclarationProvider;
@@ -26,7 +29,7 @@ import java.util.Map;
 public class MicroLendingApp extends Application<MicroLendingAppConfiguration> {
 
     public static void main(String[] args) throws Exception {
-        new MicroLendingApp().run(new String[]{"server", "micro-lending-app-dropwizard-config.yml"});
+        new MicroLendingApp().run(args);
     }
 
     @Override
@@ -64,8 +67,6 @@ public class MicroLendingApp extends Application<MicroLendingAppConfiguration> {
         ctx.registerShutdownHook();
         ctx.start();
 
-        //now that Spring is started, let's get all the beans that matter into DropWizard
-
         //health checks
         Map<String, HealthCheck> healthChecks = ctx.getBeansOfType(HealthCheck.class);
         for(Map.Entry<String,HealthCheck> entry : healthChecks.entrySet()) {
@@ -84,6 +85,8 @@ public class MicroLendingApp extends Application<MicroLendingAppConfiguration> {
             environment.jersey().register(entry.getValue());
         }
 
+        //object mapper (Java 8 date and time types)
+        environment.getObjectMapper().registerModule(new JSR310Module());
     }
 
     private void configureSwagger(Environment environment) {

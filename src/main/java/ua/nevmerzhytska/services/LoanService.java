@@ -1,7 +1,10 @@
 package ua.nevmerzhytska.services;
 
-/**
- * Created by Svitlana on 03.09.2015.
- */
-interface LoanService {
+import ua.nevmerzhytska.model.LoanRequest;
+
+public interface LoanService {
+
+    void applyForLoan(String requestorIp, LoanRequest loanRequest);
+
+    void extendLoan(String requestorIp, String loanId);
 }
