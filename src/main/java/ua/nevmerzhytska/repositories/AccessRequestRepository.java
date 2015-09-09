@@ -8,5 +8,5 @@ import java.util.List;
 
 public interface AccessRequestRepository extends CrudRepository<AccessRequest, Integer> {
 
-    List<AccessRequest> fingByIpAndAccessTimeBetween(String ip, LocalDateTime start, LocalDateTime end);
+    List<AccessRequest> findByIpAndAccessTimeBetween(String ip, LocalDateTime start, LocalDateTime end);
 }

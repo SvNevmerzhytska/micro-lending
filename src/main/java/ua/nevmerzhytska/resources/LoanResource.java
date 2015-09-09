@@ -34,7 +34,7 @@ public class LoanResource {
     })
     public Response applyLoan(@ApiParam(value = "Requested loan", required = true) LoanRequest loan,
                               @Context HttpServletRequest req) {
-        System.out.println(req.getRemoteAddr());
+        loanService.applyForLoan(req.getRemoteAddr(), loan);
         return Response.ok().build();
     }
 

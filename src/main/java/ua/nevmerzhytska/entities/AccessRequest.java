@@ -1,6 +1,8 @@
 package ua.nevmerzhytska.entities;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -10,6 +12,7 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name = "ACCESS_REQUESTS", indexes = {@Index(columnList = "IP")})
 @Data
+@NoArgsConstructor
 public class AccessRequest {
 
     @Id
@@ -24,4 +27,9 @@ public class AccessRequest {
     @NotNull
     @Column(name = "ACCESS_TIME")
     private LocalDateTime accessTime;
+
+    public AccessRequest(String ip, LocalDateTime accessTime) {
+        this.ip = ip;
+        this.accessTime = accessTime;
+    }
 }
