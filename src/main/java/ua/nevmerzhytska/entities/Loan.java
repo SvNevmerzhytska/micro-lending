@@ -1,6 +1,7 @@
 package ua.nevmerzhytska.entities;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -13,6 +14,7 @@ import java.time.LocalDate;
 @Entity
 @Table(name = "LOANS", indexes = {@Index(columnList = "USER")})
 @Data
+@NoArgsConstructor
 public class Loan {
 
     @Id
@@ -40,4 +42,11 @@ public class Loan {
     @NotEmpty
     @Column(name = "USER")
     private String user;
+
+    public Loan(int requestedAmount, double interestRate, LocalDate dueDate, String user) {
+        this.requestedAmount = requestedAmount;
+        this.interestRate = interestRate;
+        this.dueDate = dueDate;
+        this.user = user;
+    }
 }

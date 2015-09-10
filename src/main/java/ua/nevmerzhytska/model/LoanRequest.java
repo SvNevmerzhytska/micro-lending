@@ -9,6 +9,8 @@ import java.time.LocalDate;
 @Data
 public class LoanRequest {
 
+    private String userId;
+
     private int loanAmount;
 
     @JsonDeserialize(using = LocalDateDeserializer.class)

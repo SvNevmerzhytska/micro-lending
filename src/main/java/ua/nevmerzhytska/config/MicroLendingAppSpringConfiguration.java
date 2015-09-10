@@ -29,7 +29,7 @@ public class MicroLendingAppSpringConfiguration {
     @Bean
     public Properties properties() throws IOException {
         Properties properties = new Properties();
-        try(InputStream inputStream = MicroLendingAppSpringConfiguration.class.getClassLoader().getResourceAsStream("micro-lending-app.properties")) {
+        try(InputStream inputStream = MicroLendingAppSpringConfiguration.class.getClassLoader().getResourceAsStream("app.properties")) {
             properties.load(inputStream);
         }
         return properties;

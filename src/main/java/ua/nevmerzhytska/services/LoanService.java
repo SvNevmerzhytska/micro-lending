@@ -1,10 +1,15 @@
 package ua.nevmerzhytska.services;
 
+import ua.nevmerzhytska.entities.Loan;
 import ua.nevmerzhytska.model.LoanRequest;
+
+import java.util.List;
 
 public interface LoanService {
 
-    void applyForLoan(String requestorIp, LoanRequest loanRequest);
+    String applyForLoan(String requestorIp, LoanRequest loanRequest);
 
-    void extendLoan(String requestorIp, String loanId);
+    String extendLoan(String requestorIp, String loanId);
+
+    List<Loan> getLoanHistory(String user);
 }
