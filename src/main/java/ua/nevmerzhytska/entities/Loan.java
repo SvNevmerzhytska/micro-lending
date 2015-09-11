@@ -4,6 +4,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.validator.constraints.NotEmpty;
+import ua.nevmerzhytska.converters.LocalDatePersistenceConverter;
 
 import javax.persistence.*;
 import javax.validation.constraints.Max;
@@ -34,6 +35,7 @@ public class Loan {
 
     @NotNull
     @Column(name = "DUE_DATE")
+    @Convert(converter = LocalDatePersistenceConverter.class)
     private LocalDate dueDate;
 
     @Column(name = "EXTENSION_LOAN")

@@ -3,7 +3,6 @@ package ua.nevmerzhytska.services;
 import com.google.common.collect.Lists;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 import ua.nevmerzhytska.entities.AccessRequest;
 import ua.nevmerzhytska.entities.Loan;
 import ua.nevmerzhytska.exception.HighRiskException;

@@ -1,12 +1,11 @@
 package ua.nevmerzhytska.entities;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import ua.nevmerzhytska.converters.LocalDateTimePersistenceConverter;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
 import java.time.LocalDateTime;
 
 @Entity
@@ -26,6 +25,7 @@ public class AccessRequest {
 
     @NotNull
     @Column(name = "ACCESS_TIME")
+    @Convert(converter = LocalDateTimePersistenceConverter.class)
     private LocalDateTime accessTime;
 
     public AccessRequest(String ip, LocalDateTime accessTime) {

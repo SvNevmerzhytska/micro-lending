@@ -1,8 +1,6 @@
 package ua.nevmerzhytska;
 
 import com.codahale.metrics.health.HealthCheck;
-import com.fasterxml.jackson.databind.DeserializationFeature;
-import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JSR310Module;
 import com.wordnik.swagger.config.ScannerFactory;
 import com.wordnik.swagger.jaxrs.config.DefaultJaxrsScanner;
